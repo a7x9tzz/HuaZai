@@ -6,10 +6,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
       
       
     <delete id="delete" parameterType="int">  
-        delete from userinfo where id = #{id}  
+        delete from userInfo where id = #{id}  
     </delete>  
       
-      
+    <insert id="add" parameterType="UserInfo">
+    	insert into userInfo values (id=#{id},name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address})
+    </insert>
+    
+    <update id="update" parameterType="UserInfo">
+    	update userInfo set id=#{id},name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address}
+    </update>
+    
+    <select id="select" parameterType="null">
+    	select * from userInfo
+    </select>
       
   
 </mapper>
