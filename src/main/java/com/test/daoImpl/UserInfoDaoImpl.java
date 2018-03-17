@@ -1,7 +1,5 @@
 package com.test.daoImpl;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +12,35 @@ import com.test.pojo.UserInfo;
 public class UserInfoDaoImpl implements UserInfoDao {
 	
 	@Autowired
-	SqlSessionFactory sqlSessionFactory ;
+	private SqlSessionFactory sqlSessionFactory ;
 	
-	@Override
 	public void add(UserInfo user) {
-		// TODO Auto-generated method stub
-
+		
+		SqlSession session = sqlSessionFactory.openSession();
+		session.insert("userinfomapper.add",user);
+		session.close();
+		
 	}
 
-	@Override
 	public void delete(Integer id) {
 		SqlSession session = sqlSessionFactory.openSession();
 		session.delete("userinfomapper.delete", id);
 		session.close();
 	}
 
-	@Override
 	public void update(UserInfo user) {
-		// TODO Auto-generated method stub
+		SqlSession session = sqlSessionFactory.openSession();
+		session.update("userinfomapper.update",user);
+		session.close();
 
 	}
 
-	@Override
-	public List<UserInfo> search() {
-		// TODO Auto-generated method stub
-		return null;
+	public UserInfo select() {
+		SqlSession session = sqlSessionFactory.openSession();
+		UserInfo user = (UserInfo)session.selectList("userinfomapper.select");
+		session.close();
+		return user;
 	}
+
 
 }
