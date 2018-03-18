@@ -1,6 +1,5 @@
 package com.test.dao;
 
-import java.util.List;
 
 import com.test.pojo.UserInfo;
 
@@ -11,5 +10,6 @@ public interface UserInfoDao {
 	
 	public void update(UserInfo user);
 	
-	public List<UserInfo> search();
+	public UserInfo select();
+	
 }

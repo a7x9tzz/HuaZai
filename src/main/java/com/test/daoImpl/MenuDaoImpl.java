@@ -5,42 +5,48 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.test.dao.UserInfoDao;
-import com.test.pojo.UserInfo;
+import com.test.dao.MenuDao;
+import com.test.pojo.Menu;
 
-@Repository("userInfoDao")
-public class UserInfoDaoImpl implements UserInfoDao {
+@Repository("menuDao")
+public class MenuDaoImpl implements MenuDao {
 	
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory ;
 	
-	public void add(UserInfo user) {
+	
+	public void add(Menu menu) {
 		
 		SqlSession session = sqlSessionFactory.openSession();
-		session.insert("userinfomapper.add",user);
+		session.insert("menumapper.add",menu);
 		session.close();
-		
 	}
+
 
 	public void delete(Integer id) {
+		
 		SqlSession session = sqlSessionFactory.openSession();
-		session.delete("userinfomapper.delete", id);
+		session.delete("menumapper.delete",id);
 		session.close();
+		
 	}
 
-	public void update(UserInfo user) {
-		SqlSession session = sqlSessionFactory.openSession();
-		session.update("userinfomapper.update",user);
-		session.close();
 
+	public void update(Menu menu) {
+		
+		SqlSession session = sqlSessionFactory.openSession();
+		session.update("menumapper.update",menu);
+		session.close();
+		
 	}
 
-	public UserInfo select() {
-		SqlSession session = sqlSessionFactory.openSession();
-		UserInfo user = (UserInfo)session.selectList("userinfomapper.select");
-		session.close();
-		return user;
-	}
 
+	public Menu select() {
+		
+		SqlSession session = sqlSessionFactory.openSession();
+		Menu menu = (Menu)session.selectList("menumapper.select");
+		session.close();
+		return menu;
+	}
 
 }

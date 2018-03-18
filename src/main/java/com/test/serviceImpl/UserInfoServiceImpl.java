@@ -13,9 +13,31 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Autowired
 	private UserInfoDao userInfoDao;
 	
-	@Override
+	
+
+	public void add(UserInfo user) {
+		userInfoDao.add(user);
+	}
+
+
+
 	public void delete(Integer id) {
 		userInfoDao.delete(id);
+		
+	}
+
+
+
+	public void update(UserInfo user) {
+		userInfoDao.update(user);
+		
+	}
+
+
+
+	public UserInfo select() {
+		UserInfo user = userInfoDao.select();
+		return user;
 	}
 
 	@Override
