@@ -1,5 +1,7 @@
 package com.test.daoImpl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +43,12 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 
-	public Menu select() {
+	/*public List<Menu> select() {
 		
 		SqlSession session = sqlSessionFactory.openSession();
-		Menu menu = (Menu)session.selectList("menumapper.select");
+		List<Menu> list = session.selectList("menumapper.select");
 		session.close();
-		return menu;
+		return list;
 	}
-
+*/
 }

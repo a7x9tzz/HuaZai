@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.test.common.Page;
 import com.test.pojo.UserInfo;
 import com.test.service.UserInfoService;
 
@@ -15,22 +17,36 @@ public class UserInfoController {
 	@Autowired
 	private UserInfoService userInfoService;
 	
+	@RequestMapping("/listView")
+	public ModelAndView listView(Page<UserInfo> page) {
+		if(null == page.getCurrentPage()) {
+			page.setCurrentPage(1);
+		}
+		ModelAndView view = new ModelAndView("/userinfo/userinfoList");
+		userInfoService.select(page);
+		view.addObject("page", page);
+		return view;
+	}
+	
+	@RequestMapping("/addView")
+	public ModelAndView addView() {
+		ModelAndView view = new ModelAndView("/userinfo/add");
+		
+		return view;
+	}
+	
 	@RequestMapping("/delete")
 	public void delete(Integer id) {
 		userInfoService.delete(id);
 	}
 	@RequestMapping("/add")
-	public void add(@RequestBody UserInfo  user) { // ÊµÌåÀà¶ÔÏó²»ÄÜÖ±½Ó×÷Îª²ÎÊý£¬Ò©¼Û@RequestBody
+	public String add(UserInfo  user) { // Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò©ï¿½ï¿½@RequestBody
 		userInfoService.add(user);
+		return "redirect:/userInfo/listView";
 	}
 	@RequestMapping("/update")
 	public void update(@RequestBody UserInfo  user){
 		userInfoService.update(user);
-	}
-	@RequestMapping("/select")
-	public UserInfo select() {
-		UserInfo user = userInfoService.select();
-		return user;
 	}
 	
 }

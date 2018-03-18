@@ -35,11 +35,11 @@ public class MenuController {
 		
 	}
 	
-	@RequestMapping("/select")
+	/*@RequestMapping("/select")
 	public Menu select() {
 		
 		Menu menu = menuService.select();
 		return menu;
-	}
+	}*/
 
 }

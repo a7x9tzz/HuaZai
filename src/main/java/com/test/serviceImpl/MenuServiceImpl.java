@@ -32,9 +32,9 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 
-	public Menu select() {
+	/*public Menu select() {
 		Menu menu = menuDao.select();
 		return menu;
-	}
+	}*/
 
 }

@@ -1,10 +1,15 @@
 package com.test.daoImpl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.test.common.Page;
 import com.test.dao.UserInfoDao;
 import com.test.pojo.UserInfo;
 
@@ -35,11 +40,30 @@ public class UserInfoDaoImpl implements UserInfoDao {
 
 	}
 
-	public UserInfo select() {
+	public Page<UserInfo> select(Page<UserInfo> page) {
 		SqlSession session = sqlSessionFactory.openSession();
-		UserInfo user = (UserInfo)session.selectList("userinfomapper.select");
+		Integer startNo = page.getStartNo();
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startNo", startNo);
+		map.put("count", page.getPageSize());
+		List<UserInfo> list = session.selectList("userinfomapper.select",map);
+		page.setResult(list);
+		page.setTotalSize(countAll());
+		if(page.getTotalSize()%page.getPageSize()==0) {
+			page.setTotalPage(page.getTotalSize()/page.getPageSize());
+		}else {
+			page.setTotalPage(page.getTotalSize()/page.getPageSize()+1);
+		}
 		session.close();
-		return user;
+		return page;
+	}
+
+	@Override
+	public Integer countAll() {
+		SqlSession session = sqlSessionFactory.openSession();
+		Integer count = session.selectOne("userinfomapper.countAll");
+		session.close();
+		return count;
 	}
 
 

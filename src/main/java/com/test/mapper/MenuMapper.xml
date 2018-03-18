@@ -4,22 +4,22 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"> 
 
 <mapper namespace="menumapper">
-
-<insert id="add" parameterType="Menu">
-insert into menu values (id=#{id},name=#{name},style=#{style},price=#{price})
+<!-- 
+<insert id="add" parameterType="com.test.pojo.Menu">
+insert into menu values (#{id},#{name},#{style},#{price})
 </insert>
 
-<delete id="delete" parameterType="Integer">
+<delete id="delete" parameterType="java.lang.Integer">
 	delete from menu where id=#{id}
 </delete>
 
-<update id="update" parameterType="Menu">
+<update id="update" parameterType="com.test.pojo.Menu">
 	update menu set id=#{id},name=#{name},style=#{style},price=#{price}	
-</update>
+</update> -->
 
-<select id="select" parameterType="null">
+<!-- <select id="select" resultType="com.test.pojo.Menu">
 	select * from menu
-</select>
+</select> -->
 
 
 </mapper> 

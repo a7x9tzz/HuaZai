@@ -3,6 +3,7 @@ package com.test.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.test.common.Page;
 import com.test.dao.UserInfoDao;
 import com.test.pojo.UserInfo;
 import com.test.service.UserInfoService;
@@ -35,10 +36,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 
 
-	public UserInfo select() {
-		UserInfo user = userInfoDao.select();
-		return user;
+	@Override
+	public Page<UserInfo> select(Page<UserInfo> page) {
+		return userInfoDao.select(page);
 	}
+
 
 
 }

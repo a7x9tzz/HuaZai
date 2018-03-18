@@ -9,17 +9,20 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         delete from userInfo where id = #{id}  
     </delete>  
       
-    <insert id="add" parameterType="UserInfo">
-    	insert into userInfo values (id=#{id},name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address})
+    <insert id="add" parameterType="com.test.pojo.UserInfo">
+    	insert into userInfo(name,phone,age,type,address) values (#{name},#{phone},#{age},#{type},#{address})
     </insert>
     
-    <update id="update" parameterType="UserInfo">
+    <update id="update" parameterType="com.test.pojo.UserInfo">
     	update userInfo set id=#{id},name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address}
     </update>
     
-    <select id="select" parameterType="null">
-    	select * from userInfo
+    <select id="select" resultType="com.test.pojo.UserInfo" parameterType="java.util.Map">
+    	select * from userInfo limit #{startNo}, #{count}
     </select>
       
+      <select id="countAll" resultType="java.lang.Integer">
+    	select count(*) from userInfo
+    </select>
   
 </mapper>

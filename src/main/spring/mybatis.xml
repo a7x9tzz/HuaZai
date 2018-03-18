@@ -3,10 +3,10 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
 "http://mybatis.org/dtd/mybatis-3-config.dtd">  
 <configuration>  
-    <typeAliases>  
-        <!-- 扫描别名 -->  
+   <!--  <typeAliases>  
+        扫描别名  
         <package name="com.test.pojo"/>  
-    </typeAliases>  
+    </typeAliases>  --> 
 <!-- 加载我们的Sql语句的xml文件 -->  
   
 <!-- 使用自动扫描器时，mapper.xml文件如果和mapper.java接口在一个目录则此处不用定义mappers -->  

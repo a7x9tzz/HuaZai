@@ -10,6 +10,6 @@ public interface MenuDao {
 	
 	public void update(Menu menu);
 	
-	public Menu select();
+	/*public Menu select();*/
 
 }
