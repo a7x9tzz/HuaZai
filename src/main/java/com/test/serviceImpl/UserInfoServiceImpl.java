@@ -40,10 +40,5 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return user;
 	}
 
-	@Override
-	public void add(UserInfo user) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
