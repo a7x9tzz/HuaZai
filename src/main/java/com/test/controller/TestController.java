@@ -13,6 +13,6 @@ public class TestController {
 	
 	@RequestMapping(value="/aaa", method= {RequestMethod.GET,RequestMethod.POST}) // {name:'zs',age:11}
 	public String test(HttpServletRequest request, HttpServletResponse response) {
-		return "/page/test";
+		return "/test";
 	}
 }

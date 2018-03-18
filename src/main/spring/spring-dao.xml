@@ -29,14 +29,19 @@
         <!--注入数据库连接对象-->  
         <property name="dataSource" ref="dataSource"/>  
         <!--加载mybatis配置文件 这里mybatis配置文件的工作都在spring中配置了所以mybatis只是配置别名就可以-->  
-        <property name="configLocation" value="classpath:spring/mybatis.xml"/>  
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+        <property name="mapperLocations">  
+            <list>  
+                <value>classpath:com/test/mapper/*.xml</value>  
+            </list>  
+        </property>  
     </bean>  
       
     <!-- mapper扫描器 -->  
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
-        <!-- 扫描的包，如果要扫描多个，中间用,隔开 -->  
+    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        扫描的包，如果要扫描多个，中间用,隔开  
         <property name="basePackage" value="com.ys.mybatis.mapper"></property>  
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />  
-    </bean>  
+    </bean>  --> 
   
 </beans>
