@@ -1,5 +1,7 @@
 package com.test.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +41,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 	@Override
 	public Page<UserInfo> select(Page<UserInfo> page) {
 		return userInfoDao.select(page);
+	}
+
+
+
+	@Override
+	public List<UserInfo> select2() {
+		// TODO Auto-generated method stub
+		return userInfoDao.select2();
 	}
 
 

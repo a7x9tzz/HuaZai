@@ -1,5 +1,7 @@
 package com.test.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +30,16 @@ public class UserInfoController {
 		return view;
 	}
 	
+	@RequestMapping("/listView2")
+	public ModelAndView listView2() {
+		ModelAndView view = new ModelAndView("/userinfo/userinfoList2");
+		List<UserInfo> list=userInfoService.select2();
+		view.addObject("result", list);
+		return view;
+	}
+	
+	
+	
 	@RequestMapping("/addView")
 	public ModelAndView addView() {
 		ModelAndView view = new ModelAndView("/userinfo/add");
@@ -42,7 +54,7 @@ public class UserInfoController {
 	@RequestMapping("/add")
 	public String add(UserInfo  user) { // ʵ���������ֱ����Ϊ������ҩ��@RequestBody
 		userInfoService.add(user);
-		return "redirect:/userInfo/listView";
+		return "redirect:/userInfo/listView2";
 	}
 	@RequestMapping("/update")
 	public void update(@RequestBody UserInfo  user){

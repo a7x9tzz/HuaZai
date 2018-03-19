@@ -44,7 +44,7 @@
 			<td style="width:70px">操作</td>
 		</tr>
 		
-		<c:forEach items="${page.result }" var="user">
+		<c:forEach items="${result }" var="user">
 			<tr>
 				<td style="width:70px">${user.id }</td>
 				<td style="width:70px">${user.name }</td>
@@ -62,22 +62,5 @@
 		
 	</table>
 	
-	<c:choose>
-		<c:when test="${page.totalPage == 0 }">
-			 <button>1</button>
-		</c:when>
-		<c:otherwise>
-			<c:forEach var="i" begin="1" end="${page.totalPage }">
-				<c:choose>
-					<c:when test="${page.currentPage == i }">
-					<button style="color:red" onclick="getPage(this);">${i }</button>
-					</c:when>
-					<c:otherwise>
-						<button onclick="getPage(${i});" >${i }</button>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		</c:otherwise>
-	</c:choose>
 </body>
 </html>
