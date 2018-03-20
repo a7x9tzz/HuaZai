@@ -43,22 +43,33 @@ public class UserInfoController {
 	@RequestMapping("/addView")
 	public ModelAndView addView() {
 		ModelAndView view = new ModelAndView("/userinfo/add");
-		
 		return view;
 	}
 	
 	@RequestMapping("/delete")
-	public void delete(Integer id) {
+	public String delete(Integer id) {
+		//System.out.println(id);
 		userInfoService.delete(id);
+		return "redirect:/userInfo/listView";
+		
 	}
 	@RequestMapping("/add")
 	public String add(UserInfo  user) { // ʵ���������ֱ����Ϊ������ҩ��@RequestBody
 		userInfoService.add(user);
-		return "redirect:/userInfo/listView2";
+		return "redirect:/userInfo/listView";
+	}
+	@RequestMapping("/updateView")
+	public ModelAndView updateView(UserInfo user) {
+		System.out.println(user);
+		ModelAndView view = new ModelAndView("/userinfo/update");
+		view.addObject("user",user);
+		return view;
 	}
 	@RequestMapping("/update")
-	public void update(@RequestBody UserInfo  user){
+	public String update(@RequestBody UserInfo  user){
+		
 		userInfoService.update(user);
+		return "redirect:/userInfo/listView";
 	}
 	
 }

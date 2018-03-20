@@ -15,6 +15,12 @@
 	function addUser(){
 		window.location.href = "${pageContext.request.contextPath}/userInfo/addView";
 	}
+	function deleteUser(id){
+		window.location.href = "${pageContext.request.contextPath}/userInfo/delete?id="+id;
+	}
+	function updateUser(user){
+		window.location.href = "${pageContext.request.contextPath}/userInfo/updateView?user="+user;
+	}
 	
 	function getPage(odiv){
 		var form = $("<form></form>");
@@ -53,8 +59,8 @@
 				<td style="width:70px">${user.type==1?'管理员':'用户' }</td>
 				<td style="width:70px">${user.address }</td>
 				<td style="width:150px">
-					<button type="button">删除</button>
-					<button type="button">修改</button>
+					<button type="button" onclick="deleteUser(${user.id});">删除</button>
+					<button type="button" onclick="updateUser(${user});">修改</button>
 					
 				</td>
 			</tr>
