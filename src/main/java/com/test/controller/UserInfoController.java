@@ -59,14 +59,16 @@ public class UserInfoController {
 		return "redirect:/userInfo/listView";
 	}
 	@RequestMapping("/updateView")
-	public ModelAndView updateView(UserInfo user) {
-		System.out.println(user);
+	public ModelAndView updateView(Integer id) {
+		//System.out.println(id);
+		UserInfo user =userInfoService.getById(id);
+		//System.out.println(user);
 		ModelAndView view = new ModelAndView("/userinfo/update");
 		view.addObject("user",user);
 		return view;
 	}
 	@RequestMapping("/update")
-	public String update(@RequestBody UserInfo  user){
+	public String update(UserInfo  user){
 		
 		userInfoService.update(user);
 		return "redirect:/userInfo/listView";

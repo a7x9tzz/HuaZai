@@ -14,7 +14,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     </insert>
     
     <update id="update" parameterType="com.test.pojo.UserInfo">
-    	update userInfo set id=#{id},name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address}
+    	update userInfo set name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address}
     </update>
     
     <select id="select" resultType="com.test.pojo.UserInfo" parameterType="java.util.Map">
@@ -24,7 +24,9 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     <select id="select2" resultType="com.test.pojo.UserInfo">
     	select * from userInfo 
     </select>
-      
+    <select id="selectOne" resultType="com.test.pojo.UserInfo" parameterType="int">
+    	select * from userInfo where id=#{id}
+    </select>  
       <select id="countAll" resultType="java.lang.Integer">
     	select count(*) from userInfo
     </select>

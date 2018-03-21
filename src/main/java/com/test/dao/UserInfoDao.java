@@ -18,5 +18,7 @@ public interface UserInfoDao {
 	public List<UserInfo> select2();
 	
 	public Integer countAll();
+
+	public UserInfo getById(Integer id);
 	
 }

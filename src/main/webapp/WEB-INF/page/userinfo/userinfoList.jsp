@@ -18,8 +18,8 @@
 	function deleteUser(id){
 		window.location.href = "${pageContext.request.contextPath}/userInfo/delete?id="+id;
 	}
-	function updateUser(user){
-		window.location.href = "${pageContext.request.contextPath}/userInfo/updateView?user="+user;
+	function updateUser(id){
+		window.location.href = "${pageContext.request.contextPath}/userInfo/updateView?id="+id;
 	}
 	
 	function getPage(odiv){
@@ -60,8 +60,8 @@
 				<td style="width:70px">${user.address }</td>
 				<td style="width:150px">
 					<button type="button" onclick="deleteUser(${user.id});">删除</button>
-					<button type="button" onclick="updateUser(${user});">修改</button>
-					
+					<!--<button type="button" onclick="updateUser(${user});">修改2</button> -->
+					<button type="button" onclick="updateUser(${user.id});">修改</button>
 				</td>
 			</tr>
 		</c:forEach>

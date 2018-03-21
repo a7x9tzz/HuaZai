@@ -74,5 +74,14 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		return list;
 	}
 
+	@Override
+	public UserInfo getById(Integer id) {
+		SqlSession session = sqlSessionFactory.openSession();
+		UserInfo user =session.selectOne("userinfomapper.selectOne",id);
+		
+		session.close();
+		return user;
+	}
+
 
 }

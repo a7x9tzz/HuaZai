@@ -11,4 +11,5 @@ public interface UserInfoService {
 	public void update(UserInfo user);
 	public Page<UserInfo> select(Page<UserInfo> page);
 	public List<UserInfo> select2();
+	public UserInfo getById(Integer id);
 }
