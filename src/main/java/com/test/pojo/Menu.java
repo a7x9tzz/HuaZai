@@ -3,7 +3,7 @@ package com.test.pojo;
 public class Menu {
 	private Integer id;
 	private String name;
-	private String style;
+	private Integer style;
 	private Integer price;
 	public Integer getId() {
 		return id;
@@ -17,10 +17,10 @@ public class Menu {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getStyle() {
+	public Integer getStyle() {
 		return style;
 	}
-	public void setStyle(String style) {
+	public void setStyle(Integer style) {
 		this.style = style;
 	}
 	public Integer getPrice() {

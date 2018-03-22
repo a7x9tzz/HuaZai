@@ -20,6 +20,29 @@ insert into menu values (#{id},#{name},#{style},#{price})
 <!-- <select id="select" resultType="com.test.pojo.Menu">
 	select * from menu
 </select> -->
+<select id="countAll" resultType="java.lang.Integer">
+	select count(*) from menu
+</select>
+
+<select id="select" resultType="com.test.pojo.Menu" parameterType="java.util.Map">
+    	select * from menu limit #{startNo}, #{count}
+</select>
+
+<insert id="add" parameterType="com.test.pojo.Menu">
+insert into menu values (#{id},#{name},#{style},#{price})
+</insert>
+
+<delete id="delete" parameterType="java.lang.Integer">
+	delete from menu where id=#{id}
+</delete>
+
+<select id="selectOne" resultType="com.test.pojo.Menu" parameterType="java.lang.Integer">
+    	select * from menu where id=#{id}
+</select>
+
+<update id="update" parameterType="com.test.pojo.Menu">
+	update menu set name=#{name},style=#{style},price=#{price} where name=#{name}
+</update> 
 
 
 </mapper> 

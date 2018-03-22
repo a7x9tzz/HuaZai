@@ -14,7 +14,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
     </insert>
     
     <update id="update" parameterType="com.test.pojo.UserInfo">
-    	update userInfo set name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address}
+    	update userInfo set name=#{name},phone=#{phone},age=#{age},type=#{type},address=#{address} where name=#{name}
     </update>
     
     <select id="select" resultType="com.test.pojo.UserInfo" parameterType="java.util.Map">
