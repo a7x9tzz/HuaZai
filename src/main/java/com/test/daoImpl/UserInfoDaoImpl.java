@@ -14,6 +14,7 @@ import com.test.dao.UserInfoDao;
 import com.test.pojo.UserInfo;
 
 @Repository("userInfoDao")
+
 public class UserInfoDaoImpl implements UserInfoDao {
 	
 	@Autowired
@@ -32,7 +33,7 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		session.delete("userinfomapper.delete", id);
 		session.close();
 	}
-
+	@Override
 	public void update(UserInfo user) {
 		SqlSession session = sqlSessionFactory.openSession();
 		session.update("userinfomapper.update",user);

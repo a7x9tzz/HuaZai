@@ -76,7 +76,7 @@
 			<c:forEach var="i" begin="1" end="${page.totalPage }">
 				<c:choose>
 					<c:when test="${page.currentPage == i }">
-					<button style="color:red" onclick="getPage(this);">${i }</button>
+					<button style="color:red" onclick="getPage(${i});">${i }</button>
 					</c:when>
 					<c:otherwise>
 						<button onclick="getPage(${i});" >${i }</button>
