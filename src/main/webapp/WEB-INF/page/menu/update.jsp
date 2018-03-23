@@ -9,7 +9,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/userInfo/update" method="post" id="updateForm">
+	<form action="${pageContext.request.contextPath}/menu/update" method="post" id="updateForm">
 		菜名：<input name="name" type="text" value=${menu.name}></input>
 	          
 		<c:choose>

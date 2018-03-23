@@ -49,7 +49,7 @@
 			<td style="width:70px">地址</td>
 			<td style="width:70px">操作</td>
 		</tr>
-		
+		  
 		<c:forEach items="${page.result }" var="user">
 			<tr>
 				<td style="width:70px">${user.id }</td>
