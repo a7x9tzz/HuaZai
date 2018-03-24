@@ -10,6 +10,7 @@
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/menu/update" method="post" id="updateForm">
+		<input name="id" type="hidden" value=${menu.id}></input>
 		菜名：<input name="name" type="text" value=${menu.name}></input>
 	          
 		<c:choose>

@@ -82,6 +82,15 @@ public class MenuDaoImpl implements MenuDao {
 	}
 
 
+	@Override
+	public Integer selectName(String name) {
+		SqlSession session =sqlSessionFactory.openSession();
+		Integer nameCount = session.selectOne("menumapper.selectNameCount",name);
+		session.close();
+		return nameCount;
+	}
+
+
 	/*public List<Menu> select() {
 		
 		SqlSession session = sqlSessionFactory.openSession();

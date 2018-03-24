@@ -47,6 +47,13 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 
+	@Override
+	public Integer selectName(String name) {
+		
+		return menuDao.selectName(name);
+	}
+
+
 	/*public Menu select() {
 		Menu menu = menuDao.select();
 		return menu;

@@ -39,6 +39,14 @@ public class MenuController {
 		System.out.println("=====================age： "+user.getAge());
 		return "abcdefg";
 	}
+	@RequestMapping("/conflict")
+	public @ResponseBody Integer conflict(@RequestParam(value="name")String name) {
+		//System.out.println(menu);
+		//System.out.println(menu.getName());
+		Integer result = menuService.selectName(name);
+		System.out.println(result);
+		return result;
+	}
 	
 	@RequestMapping("/listMenu")
 	public ModelAndView listMenu(Page<Menu> page) {

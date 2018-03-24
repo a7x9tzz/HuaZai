@@ -10,5 +10,6 @@ public interface MenuService {
 	/*public Menu select();*/
 	public Page<Menu> select(Page<Menu> page);
 	public Menu getById(Integer id);
+	public Integer selectName(String name);
 
 }

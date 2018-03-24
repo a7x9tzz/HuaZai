@@ -14,9 +14,9 @@
 			}
 		});
 		
-		$.ajax({
+		/*$.ajax({
 			type:"post",
-			url : "${pageContext.request.contextPath}/menu/test",
+			url:"${pageContext.request.contextPath}/menu/test",
 			data : JSON.stringify({"id":23,"name":"huazai","age":23,"sexy":"sfds"}),
 			contentType : "application/json",
 			success : function(res){
@@ -25,6 +25,18 @@
 			error : function(e){
 				alert("sjfowsjfeow");
 			}
+		});*/
+		var str=$("#me").val();
+		$.ajax({
+			type:"post",
+			url:"${pageContext.request.contextPath}/menu/conflict",
+			data:JSON.stringify({'"name":'+"str"}),
+			contentType:"application/json",
+			success:function(result){
+				if(result!=0){
+				$("#repeat").html("菜名不能重复");	
+				}
+			}
 		});
 		
 	});
@@ -32,9 +44,9 @@
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/menu/add" method="post" id="addForm">
-		菜名：<input name="name" id="me" type="text"/>
+		菜名：<input name="name" id="me" type="text"/><span id="repeat"></span><br/>
 		风格:<input type="radio" name="style" value="1" checked>不辣
-			<input type="radio" name="style" value="2">辣
+			<input type="radio" name="style" value="2">辣<br/>
 		价格:<input name="price" type="text"/>
 		<div>
 			<input type="submit" value="提交"/>

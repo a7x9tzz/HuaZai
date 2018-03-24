@@ -14,6 +14,8 @@ public interface MenuDao {
 	public Page<Menu> select(Page<Menu> page);
 
 	public Menu getById(Integer id);
+
+	public Integer selectName(String name);
 	
 	/*public Menu select();*/
 

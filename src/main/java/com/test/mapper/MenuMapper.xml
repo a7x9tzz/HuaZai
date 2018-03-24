@@ -41,8 +41,12 @@ insert into menu values (#{id},#{name},#{style},#{price})
 </select>
 
 <update id="update" parameterType="com.test.pojo.Menu">
-	update menu set name=#{name},style=#{style},price=#{price} where name=#{name}
-</update> 
+	update menu set name=#{name},style=#{style},price=#{price} where id=#{id}
+</update>
+
+<select id="selectNameCount" resultType="java.lang.Integer" parameterType="java.lang.String">
+	select count(name) from menu where name=#{name}
+</select> 
 
 
 </mapper> 
