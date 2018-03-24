@@ -34,7 +34,7 @@ insert into menu values (#{id},#{name},#{style},#{price})
 
 <delete id="delete" parameterType="java.lang.Integer">
 	delete from menu where id=#{id}
-</delete>
+</delete> 
 
 <select id="selectOne" resultType="com.test.pojo.Menu" parameterType="java.lang.Integer">
     	select * from menu where id=#{id}

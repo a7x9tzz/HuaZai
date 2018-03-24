@@ -14,6 +14,19 @@
 			}
 		});
 		
+		$.ajax({
+			type:"post",
+			url : "${pageContext.request.contextPath}/menu/test",
+			data : JSON.stringify({"id":23,"name":"huazai","age":23,"sexy":"sfds"}),
+			contentType : "application/json",
+			success : function(res){
+				alert(res);
+			},
+			error : function(e){
+				alert("sjfowsjfeow");
+			}
+		});
+		
 	});
 </script>
 </head>

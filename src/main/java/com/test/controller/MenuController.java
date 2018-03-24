@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.test.common.Page;
 import com.test.pojo.Menu;
+import com.test.pojo.UserInfo;
 import com.test.service.MenuService;
 
 @Controller
@@ -16,6 +19,26 @@ public class MenuController {
 	
 	@Autowired
 	private MenuService menuService;
+	
+	/**
+	 * ajax 测试接口
+	 * @param age
+	 * @param str
+	 * @return  0：不存在； 1：存在 /  “not exist”;"exist"
+	 */
+	/*@RequestMapping("/test")
+	public @ResponseBody String test(@RequestParam(value="ageStand")Integer age, @RequestParam(value="xxx")String str) {
+		System.out.println("=====================前段值： "+age);
+		System.out.println("=====================前段值字符串： "+str);
+		return "abcdefg";
+	}*/
+	@RequestMapping("/test")
+	public @ResponseBody String test(@RequestBody UserInfo user) {
+		System.out.println("=====================id： "+user.getId());
+		System.out.println("=====================name： "+user.getName());
+		System.out.println("=====================age： "+user.getAge());
+		return "abcdefg";
+	}
 	
 	@RequestMapping("/listMenu")
 	public ModelAndView listMenu(Page<Menu> page) {
